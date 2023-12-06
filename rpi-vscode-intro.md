@@ -1,0 +1,40 @@
+### Using a Raspberry Pi 5 as a remote Linux dev environment for vscode
+
+The enhanced performance of the Raspberry Pi 5 (Pi5) over previous models enables some new desktop PC use cases.  Software development is a common use, with Visual Studio Code (VSCode) being a recommend software package in the full desktop version.  Based on testing with a Pi5 8MB model, VSCode installs easily and runs properly.  When accessing the Pi5 OS desktop directly (that is, keyboard/mouse/hdmi display), the UI is reasonably snappy, much more so than the Pi4.
+
+Developing applications on the Pi5 that involve IO such as I2C, GPIO, etc. require that the code be run on the Pi.  While direct access to the Pi OS desktop is usable, there may be reasons this is not preferable:
+* The keyboard/mouse/display may be a second setup if you normally use a desktop PC for daily use.
+* If you decide to remote into the Pi with VNC or RDP you may experience some UI issues.  In testing the mouse movements were somewhat jerky even with high speed networking and a fast PC.
+* Compared to a desktop the Pi5 still has limited memory and disk bandwidth (although NVME disks may help this issue when readily available).  With a full desktop loaded along with the VSCode UI (written in Electron/NodeJS which is not particularly efficient), there may not be enough memory available to develop larger applications (for example, large python programs).
+* Software development almost always requires an internet connection: source control load and save, installing libraries, etc.  Putting the Pi directly on your internal network may not be desired either because of security concerns or traffic burdens.
+
+So if you are developing for the Pi5 hardware, or you simply want a "standard" linux environment for managing packages, compliation, etc. it would be helpful to have a "low touch, resource efficient" way to run code on the Pi5 but using a full featured IDE such as VSCode.
+
+Fortunately VSCode has an extension developed specifically for this case.  The Remote-SSH extension (along with some helper extensions to enhance the experience) lets you run the full VSCode UI on your desktop and remote over SSH to the Pi5 for access to files and code execution.  Because the extension only needs to send commands and data to the Pi, a relatively small "shim" (called the VS Code Server) needs to run on the Pi, not the full UI. This is the way Microsoft shows this arrangement:
+
+![Alt text](image.png)
+
+Furthermore, the Local VS code on your PC manages the remote server (even installs it for you) along with extensions that give you the full VS Code experience, including debugging.  For more information see:
+https://code.visualstudio.com/docs/remote/remote-overview
+
+#### Connecting your PC to your Pi5 using SSH
+
+There are two steps to using this VS Code remote development with the Pi:
+1. Network your Pi5 to your PC such that there is communication between your PC and the Pi, and the Pi has access to the internet.
+2. Create and install an SSH key on your PC and the Pi that secures SSH login.  While you can initially login to the Pi with the password setup when you image the OS, you will not be able to use password authentication practically during development because of the number of times authentication reoccurs.  
+
+The second step is covered in the document:
+
+[VS Code SSH setup](rpi-ssh-vscode-setup.md)
+
+The first step can be done a number of different ways depending on your network, hardware, etc.
+1. Connect Pi to same wireless or LAN to which your PC is connected; the network usually contains a router giving internet access along with DHCP address management.  This is the easiest to setup if available: when you image the OS for the Pi configure a wireless SSID and password (or just plan to use Ethernet if available).  (Note that in the Pi5 OS SSH is enabled by default.) But as noted above you may not want to connect the PI directly to your network, or you may not have a network if you simply have your PC connected to a wifi hotspot but can't have the Pi also connected.  (When you first go through the step 1 document it will be easiest to use this connection type even if you change it later for daily use)
+2. ...travel router
+3. ...direct ethernet
+4. ...usb in gadget mode.
+
+
+
+
+
+
