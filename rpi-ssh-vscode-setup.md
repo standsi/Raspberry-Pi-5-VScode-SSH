@@ -17,7 +17,7 @@ Directories:
 Prerequites:
 * Install latest VS Code on your windows PC.
 * On the Pi, you can use either the full desktop or the lite version.  Further, you can either install full VS code on the Pi in full desktop, or let the VS code remote extension install services for you in either version (happens when you connect remote to the pi). 
-* If you don't install full vscode on the pi, you need to install git support manually:
+* If you don't install the desktop OS on the pi, you need to install git support manually:
     1. First `sudo apt update`.
     2. Then `sudo apt install git`.
 
