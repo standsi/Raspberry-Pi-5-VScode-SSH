@@ -1,7 +1,7 @@
 ### Connect Raspberry Pi 5 to PC with Ethernet
 
 A direct Ethernet connection is a low-cost, performant method of connecting your Pi to your PC for remote development.  It offers several benefits:
-* Isolates the Pi to a private network with pass-through internet access from your PC.
+* Isolates the Pi to a private network with pass-through internet access via your PC.
 * Ethernet is a durable connection so you typically would have no drop-outs that wifi might experience.
 
 A typical setup might look like:
