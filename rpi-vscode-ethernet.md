@@ -60,34 +60,43 @@ ICS is in control of the shared interface including IP addresses and routing.  T
 
 ICS is an older feature in Windows, although still fully supported through Windows 11.  However you don't have control of details such as DHCP ranges, etc.  Also ICS appears to use some low level identifiers when configured, such as MAC addresses or even internal UIDs.  So best practice is to disable sharing when you make any changes to the configuration and then re-enable once the changes are made.  For example, if you re-image your Pi it is best to un-share the connection on the PC before re-booting the Pi.
 
+### Appendix: Managing ICS with Poweshell ###
 
+If you would rather enable and disable ICS with scripting there is a powershell module that makes it easy.  The module with instructions can be found [at this github repo](https://github.com/loxia01/PSInternetConnectionSharing).  As noted in the readme you will need to have your powershell execution policy set correctly and have setup install-module before installing.
 
-❯ get-netadapter
+In order to use the module you will need to run powershell in administrator mode.  If you have windows terminal installed (which you should!) you can hold the shift key while right-clicking the start button on the taskbar.  You will get an entry for `Terminal (Admin)`.  Open a powershell tab if it's not your default.
 
-Name                      InterfaceDescription                    ifIndex Status       MacAddress             LinkSpeed
-----                      --------------------                    ------- ------       ----------             ---------
-Bluetooth Network Connec… Bluetooth Device (Personal Area Networ…      25 Disconnected D0-AB-D5-A3-BF-05         3 Mbps
-Ethernet 5                Realtek USB GbE Family Controller #4         27 Disconnected 00-23-A4-04-5B-82          0 bps
-Wi-Fi                     Intel(R) Wireless-AC 9260 160MHz             22 Up           D0-AB-D5-A3-BF-01       300 Mbps
-Ethernet 2                Cisco AnyConnect Secure Mobility Clien…       6 Not Present  00-05-9A-3C-7A-00          0 bps
+You can first check to see if ICS is running with the command:
 
+`get-ics`
 
-❯ get-ics
->
+If ICS is not enabled nothing will be returned.  Assuming it is not you will want to enable it with the command: 
 
-❯ set-ics 'Wi-Fi' 'Ethernet 5'
->
+`set-ics '<public connection name>' '<private connection name>'`
 
-❯ get-ics
+For example:
 
-NetworkConnectionName ICSEnabled ConnectionType
---------------------- ---------- --------------
-Wi-Fi                       True Public
-Ethernet 5                  True Private
+`set-ics 'Wi-Fi' 'Ethernet 3'`
 
-> disable-ics
->
+would share the wifi connection to the named ethernet interface.
 
-❯ get-ics
->
+Note that the parameters are strings and must match the interface names exactly.  To help with being able to copy and paste the names you can use the helper command:
+
+`get-netadapter`
+
+You will get a table of devices something like:
+
+![get-netadapter-1](get-netadapter-1.jpg)
+
+Just copy and paste from the Name column to the respective set-ics command parameters.
+
+You can verify that ICS is setup correctly with the get-ics command which gives a table like:
+
+![get-ics-1](get-ics-1.jpg)
+
+To tear down ICS just enter the command:
+
+`disable-ics`
+
+Nothing is returned but you can always run get-ics to check.
 
