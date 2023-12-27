@@ -2,7 +2,7 @@
 
 The enhanced performance of the Raspberry Pi 5 (Pi5) over previous models enables some new desktop PC use cases.  Software development is a common use, with Visual Studio Code (VSCode) being one of the recommended software packages in the full desktop version.  Based on testing with a Pi5 8MB model, VSCode installs easily and runs properly.  When accessing the Pi5 OS desktop directly (that is, keyboard/mouse/hdmi display), the UI is reasonably snappy, much more so than the Pi4.
 
-Developing applications on the Pi5 that involve IO such as I2C, GPIO, etc. require that the code be run on the Pi.  While direct access to the Pi OS desktop is usable, there may be reasons this is not preferable:
+Developing applications on the Pi5 that involve IO such as I2C, GPIO, etc. requires that the code be run on the Pi.  While direct access to the Pi OS desktop is usable, there may be reasons this is not preferable:
 * The keyboard/mouse/display may be a second setup if you normally use a desktop PC for daily use.
 * If you decide to remote into the Pi with VNC or RDP you may experience some UI issues.  In testing the mouse movements were somewhat jerky even with high speed networking and a fast PC.
 * Compared to a desktop the Pi5 still has limited memory and disk bandwidth (although NVME disks may help this issue when readily available).  With a full desktop loaded along with the VSCode UI (written in Electron/NodeJS which is not particularly efficient), there may not be enough memory available to develop larger applications (for example, large python programs).
