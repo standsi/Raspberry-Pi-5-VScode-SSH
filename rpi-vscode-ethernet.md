@@ -1,7 +1,7 @@
 ### Connect Raspberry Pi 5 to PC with Ethernet
 
 A direct Ethernet connection is a low-cost, performant method of connecting your Pi to your PC for remote development.  It offers several benefits:
-* Isolates the Pi to a private network with pass-through internet access from your PC.
+* Isolates the Pi to a private network with pass-through internet access via your PC.
 * Ethernet is a durable connection so you typically would have no drop-outs that wifi might experience.
 
 A typical setup might look like:
@@ -52,7 +52,7 @@ Now if you share the wifi connection you will get a dropdown showing both ethern
 
 ![Adapters 2](ics-3.png)
 
-You can only pick one; that is, the internet connection can only be shared to one other interface.  Similarly if your internet connection was on one of the ethernet interfaces the dropdown box would have the wifi and other ethernet listed.  If you shared one ethernet to another, note that you should disconnect the wifi to keep ICS from getting confused.  Normally Windows does this for you but if you disconnect manually.
+You can only pick one; that is, the internet connection can only be shared to one other interface.  Similarly if your internet connection was on one of the ethernet interfaces the dropdown box would have the wifi and other ethernet listed.  If you shared one ethernet to another, note that you should disconnect the wifi to keep ICS from getting confused.  Normally Windows does this for you but if not you should disconnect manually.
 
 Once you have shared the internet-connected interface to the Pi ethernet, turn on the Pi.  After the Pi boots give it another minute or two to make the pass-through connection.  ICS is providing a limited DHCP service to give the Pi interface a network address.  It also provides a DNS resolver so the Pi can get to internet resources by name.
 
