@@ -20,6 +20,11 @@ Prerequites:
 * If you don't install the desktop OS on the pi, you need to install git support manually:
     1. First `sudo apt update`.
     2. Then `sudo apt install git`.
+* You may also want to go ahead and set your git user and email; current versions of git won't let you commit without them:
+    * git  config --global user.name "<your github username>"
+    * git config --global user.email "<your github email>"
+
+
 
 ### Steps
 1. Per the vscode article, add the remote - ssh microsoft extension, configure the pi as a host (like pi@192.168.99.11) and remote into it with vscode to make sure password auth is working to the vscode server that will be installed on the pi.
