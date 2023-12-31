@@ -21,5 +21,8 @@ sudo -E env PATH=$PATH python3 raspi-blinka.py
 
 pip install -r requirements.txt
 
+to generate requirements from imports in code:
+https://github.com/bndr/pipreqs
+
 https://github.com/github/gitignore/tree/main
 
