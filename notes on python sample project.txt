@@ -4,9 +4,10 @@ sudo apt-get install python3-pip
 
 sudo apt install --upgrade python3-setuptools
 
+*** use vscode create environment with change noted below
 sudo apt install python3.11-venv
 python -m venv env --system-site-packages
-
+***
 
 in pyenv.cfg:
 include-system-site-packages = true
