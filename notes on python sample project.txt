@@ -1,8 +1,15 @@
+1. setup pi for ssh as described in other docs.
+2. connect vscode remote through ssh
+3. for this circuitpython example (or any python project) load the vscode python extension in the remote (if you have the extension loaded on your PC you can find it in the extensions app and tell vscode to install in the remote)
+4. in the remote terminal execute the following:
+
 sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get install python3-pip
 
 sudo apt install --upgrade python3-setuptools
+
+
 
 sudo apt install python3.11-venv
 python -m venv env --system-site-packages
