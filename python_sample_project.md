@@ -25,7 +25,7 @@ cd ~/projects/testblinka
 code .
 ```
 
-(Yes, that is a "dot" after code, which restarts code in the current directory)
+    (Yes, that is a "dot" after code, which restarts code in the current directory)
 
 7. Next create a virtual environment for the python libraries and execution stack.
 You can do this one of two ways: using the built in helper in vscode from the python extension,
@@ -37,7 +37,7 @@ If you prefer to use the command line do:
 
 `python -m venv .venv --system-site-packages`
 
->>Note that the name of the directory for the virtual environment can be any valid name,
+    Note that the name of the directory for the virtual environment can be any valid name,
 but using a dot-folder keeps directory listings cleaner by default.
 (If you have trouble with the venv command make sure it is installed with `sudo apt install python3.11-venv`)
 
