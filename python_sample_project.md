@@ -90,7 +90,7 @@ while(True):
 ```
 
 14. With the virtual environment active, in the terminal type:  
-`python testbme680.py`
+`python testbme680.py`  
 (there is also a run button above the source file that will do the same thing)  
 In the terminal the program should print the readings from the sensor every 3 seconds.  You can also debug the program using the debug selection from the pulldown next to the run button above the source file, or you can click on the Run and Debug application on the sidebar.
 
