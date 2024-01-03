@@ -90,14 +90,15 @@ while(True):
 ```
 
 14. With the virtual environment active, in the terminal type:  
-`python testbme680.py`  (there is also a run button above the source file that will do the same thing)  
+`python testbme680.py`
+(there is also a run button above the source file that will do the same thing)  
 In the terminal the program should print the readings from the sensor every 3 seconds.  You can also debug the program using the debug selection from the pulldown next to the run button above the source file, or you can click on the Run and Debug application on the sidebar.
 
-15.  Now that you are developing and testing your application, it's always best practice to setup a git repository to safeguard your work and potentially collaborate with others.  VScode has first class support for git operations. Assuming you installed git when you setup your Pi (rpi-ssh-vscode-setup.md), you can create a local repository in the project directory by using the Source Control application in the sidebar.  Before you commit our initial files you may want to create a ".gitignore" file to exclude files not desired in source control (such as secrets or temp folders).  
+16.  Now that you are developing and testing your application, it's always best practice to setup a git repository to safeguard your work and potentially collaborate with others.  VScode has first class support for git operations. Assuming you installed git when you setup your Pi (rpi-ssh-vscode-setup.md), you can create a local repository in the project directory by using the Source Control application in the sidebar.  Before you commit our initial files you may want to create a ".gitignore" file to exclude files not desired in source control (such as secrets or temp folders).  
 If you used the vscode helper to create the virtual environment there is already a .gitignore that excludes the virtual environment folder (you should never commit that folder, it has links specific to the Pi).  If not, or if you have other files to exclude, you may want a more comprehensive .gitignore.  Github has a library of many language and environment specific .gitignore templates at:  
 [https://github.com/github/gitignore/tree/main](https://github.com/github/gitignore/tree/main)
 
-16.  Once your .gitignore is in place, commit your files to the local repo.  Then the vscode Source Control app will show a button to let you push your repo to your Github account.  If you were logged in to Github on your PC the Remote Extension will securely pass your credentials to the Pi to enable you to complete the publish.  
+17.  Once your .gitignore is in place, commit your files to the local repo.  Then the vscode Source Control app will show a button to let you push your repo to your Github account.  If you were logged in to Github on your PC the Remote Extension will securely pass your credentials to the Pi to enable you to complete the publish.  
 Similarly, as you make changes to your application you can push new commits to Github, either direct to your default branch or to new branches.  Also, if you load the Github extension in vscode you can do pull requests right from the UI, including reviewing and closing.
 
 
