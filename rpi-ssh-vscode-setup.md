@@ -34,7 +34,7 @@ Prerequites:
 4. Back on windows, you can first try to ssh from the command line to the pi; it should not prompt for any password since the key is being passed.
 5. Finally in vscode on windows do a remote-ssh connection to the pi and verify you get in with no password.
 
-**NOTE** to revert to password login remove the file from `~/.ssh` on the pi.  You can also remove the id_xxx files from the directory on the windows machine to keep it all clean.
+**NOTE** to revert to password login remove the file from `~/.ssh` on the pi.  You can also remove the id_xxx files from the directory on the windows machine to keep it all clean.  Alternately, if you need to re-image your Pi but want to keep the ssh key you generated previously, just edit the "known_hosts" file in the `C:\Users\<user>\.ssh` directory to remove any line starting with "raspberrypi.local" or whatever name/IP you are using to SSH to the Pi.  Then you can SSH to the Pi using your username and password, then follow starting at step 3 above. 
 
 **From the ssh article**
 1. install -d -m 700 ~/.ssh
