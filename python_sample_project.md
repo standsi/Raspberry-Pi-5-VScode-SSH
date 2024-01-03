@@ -14,17 +14,16 @@ sudo apt install --upgrade python3-setuptools
 because you will be creating a virtual environment that is tied to that project.  
 Best practices vary but let's assume that you put a "projects" folder in your user directory
 to contain your projects.  Then create a folder for this specific example project, 
-for example "testblinka".  So then we have a path:
+for example "testblinka".  So then we have a path:  
 
     `~/projects/testblinka`
 
 6. In vscode open the project folder as your workspace.  You can either do File/Open Folder... and select the 
-project folder, or in the terminal do:
+project folder, or in the terminal do:  
 ```
 cd ~/projects/testblinka
 code .
-```
-
+```  
     (Yes, that is a "dot" after code, which restarts code in the current directory)
 
 7. Next create a virtual environment for the python libraries and execution stack.
@@ -33,15 +32,12 @@ or through the command line.  Using the vscode helper has the advantage that cer
 are pre-populated like a .gitignore within the virtual environment.  The net effect is a folder
 named ".venv" that has links to the python interpreter (choose the default loaded with the Pi) and 
 various other files and structures that are setup for loading libraries (the Pi 5 OS now requires virtual environments for python).
-If you prefer to use the command line do:
+If you prefer to use the command line do:  
 
-`python -m venv .venv --system-site-packages`
-
-    Note that the name of the directory for the virtual environment can be any valid name,
-but using a dot-folder keeps directory listings cleaner by default.
-(If you have trouble with the venv command make sure it is installed with `sudo apt install python3.11-venv`)
-
->>If you use the built in vscode virtual environment helper, you will need to edit the 
+`python -m venv .venv --system-site-packages`  
+  
+    Note that the name of the directory for the virtual environment can be any valid name, but using a dot-folder keeps directory listings cleaner by default. (If you have trouble with the venv command make sure it is installed with `sudo apt install python3.11-venv`)  
+If you use the built in vscode virtual environment helper, you will need to edit the 
 pyenv.cfg in the .venv folder afterward to have:
 
 `include-system-site-packages = true`
