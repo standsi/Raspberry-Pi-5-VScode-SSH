@@ -3,9 +3,9 @@
 
 | Item | Adafruit Link |
 | ---- | ------------- |
-|![bme680 breakout](https://cdn-shop.adafruit.com/310x233/3660-08.jpg)|[Adafruit BME680 - Temperature, Humidity, Pressure and Gas Sensor - STEMMA QT](https://www.adafruit.com/product/3660)|
-|![gpio bonnett](https://cdn-shop.adafruit.com/310x233/4132-07.jpg)|[Adafruit GPIO Expander Bonnet - 16 Additional I/O over I2C - STEMMA QT / Qwiic](https://www.adafruit.com/product/4132)|
-|![qwiicc cable](https://cdn-shop.adafruit.com/310x233/4210-00.jpg)|[STEMMA QT / Qwiic JST SH 4-pin Cable - 100mm Long (other lengths available)](https://www.adafruit.com/product/4210)|
+|[<img src="https://cdn-shop.adafruit.com/310x233/3660-08.jpg" alt="adafruit BME680" />](https://www.adafruit.com/product/3660)|[Adafruit BME680 - Temperature, Humidity, Pressure and Gas Sensor - STEMMA QT](https://www.adafruit.com/product/3660)|
+|[<img src="https://cdn-shop.adafruit.com/310x233/4132-07.jpg" alt="adafruit gpio bonnett" />](https://www.adafruit.com/product/4132)|[Adafruit GPIO Expander Bonnet - 16 Additional I/O over I2C - STEMMA QT / Qwiic](https://www.adafruit.com/product/4132)|
+|[<img src="https://cdn-shop.adafruit.com/310x233/4210-00.jpg" alt="adafruit qwiicc cable" />](https://www.adafruit.com/product/4210)|[STEMMA QT / Qwiic JST SH 4-pin Cable - 100mm Long (other lengths available)](https://www.adafruit.com/product/4210)|
 |![raspberry pi 5](https://cdn-shop.adafruit.com/310x233/5812-01.jpg)|For Pi 5 components available from Adafruit, see the [Intro document](rpi-vscode-intro.md)|
 
 #### Assembling the project
