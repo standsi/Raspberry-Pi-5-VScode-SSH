@@ -1,4 +1,22 @@
-1. setup Pi for ssh as described in other docs.
+
+#### Items for this sample
+
+| Item | Adafruit Link |
+| ---- | ------------- |
+|[<img src="https://cdn-shop.adafruit.com/310x233/3660-08.jpg" alt="adafruit BME680" />](https://www.adafruit.com/product/3660)|[Adafruit BME680 - Temperature, Humidity, Pressure and Gas Sensor - STEMMA QT](https://www.adafruit.com/product/3660)|
+|[<img src="https://cdn-shop.adafruit.com/310x233/4132-07.jpg" alt="adafruit gpio bonnett" />](https://www.adafruit.com/product/4132)|[Adafruit GPIO Expander Bonnet - 16 Additional I/O over I2C - STEMMA QT / Qwiic](https://www.adafruit.com/product/4132)|
+|[<img src="https://cdn-shop.adafruit.com/310x233/4210-00.jpg" alt="adafruit qwiicc cable" />](https://www.adafruit.com/product/4210)|[STEMMA QT / Qwiic JST SH 4-pin Cable - 100mm Long (other lengths available)](https://www.adafruit.com/product/4210)|
+|![raspberry pi 5](https://cdn-shop.adafruit.com/310x233/5812-01.jpg)|For Pi 5 components available from Adafruit, see the [Intro document](rpi-vscode-intro.md)|
+
+#### Assembling the project
+
+With the recent upgrade (Oct. 2023) of the GPIO expander bonnet to include a STEMMA QT/Qwiic connector, this is a no-soldering project.  With the Pi powered down, press the bonnet on top of the Pi GPIO pins, connect the JST-SH cable between the bonnet and either STEMMA connector on the BME680 breakout, and you're ready to code.  For more info see the learn guides:
+* [Adafruit GPIO Expander Bonnet](https://learn.adafruit.com/gpio-expander-bonnet/overview)
+* [Adafruit BME680](https://learn.adafruit.com/adafruit-bme680-humidity-temperature-barometic-pressure-voc-gas)
+
+#### Steps to follow for the sample
+
+1. Setup Pi for ssh as described in other docs.
 2. Connect vscode remote through ssh
 3. For this circuitpython example (or any python project) load the vscode python extension in the remote (if you have the extension loaded on your PC you can find it in the extensions app and tell vscode to install in the remote)
 4. In the remote terminal execute the following:
