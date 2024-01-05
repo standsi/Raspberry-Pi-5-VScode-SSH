@@ -1,3 +1,7 @@
+### Sample Project: Pi 5 Environmental Sensor using Remote VSCode and CircuitPython
+
+In this example we will use our Raspberry Pi 5 with some breakout boards from Adafruit programmed in CircuitPython.  Generally CircuitPython runs on micro-controllers with the CircuitPython runtime.  On the Pi with a full Linux OS Adafruit has built a software layer called Blinka that replaces the runtime while still offering compatibility with the hundreds of libraries for hardware supported by CircuitPython.  
+Adafruit has an [excellent learn guide from Melissa](https://learn.adafruit.com/circuitpython-on-raspberrypi-linux) that explains Blinka and gives step by step instructions for installing and using on the Pi.  This document follows the learn guide closely but adds some VSCode specific steps and tips.
 
 #### Items for this sample
 
