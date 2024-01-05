@@ -20,9 +20,10 @@ With the recent upgrade (Oct. 2023) of the GPIO expander bonnet to include a STE
 
 #### Steps to follow for the sample
 
-1. Setup Pi for ssh as described in other docs.
-2. Connect vscode remote through ssh
-3. For this circuitpython example (or any python project) load the vscode python extension in the remote (if you have the extension loaded on your PC you can find it in the extensions app and tell vscode to install in the remote)
+1. Assemble the components to your Pi as detailed above.
+1. Setup the Pi for SSH as described in the intro and other documents.
+2. Connect vscode remote through SSH to your Pi.
+3. For this CircuitPython example (or any other python project) load the vscode python extension in the remote (if you have the extension loaded on your PC you can find it in the extensions app and tell vscode to install in the remote)
 4. In the remote terminal execute the following:
 ```
 sudo apt-get update
