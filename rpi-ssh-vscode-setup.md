@@ -1,4 +1,4 @@
-### Setting up win 11 to remote vscode to raspberry pi with ssh key
+### Setting up Windows 10/11 to remote vscode to raspberry pi with an SSH key
 
 Refs:
 * https://pimylifeup.com/raspberry-pi-ssh-keys/
@@ -36,7 +36,7 @@ Prerequites:
 
 **NOTE** to revert to password login remove the file from `~/.ssh` on the pi.  You can also remove the id_xxx files from the directory on the windows machine to keep it all clean.  Alternately, if you need to re-image your Pi but want to keep the ssh key you generated previously, just edit the "known_hosts" file in the `C:\Users\<user>\.ssh` directory to remove any line starting with "raspberrypi.local" or whatever name/IP you are using to SSH to the Pi.  Then you can SSH to the Pi using your username and password, then follow starting at step 3 above. 
 
-**From the ssh article**
+**TLDR; From the ssh article**
 1. install -d -m 700 ~/.ssh
 2. nano ~/.ssh/authorized_keys
 3. copy in the text from the .pub file of the ssh key, save and exit
