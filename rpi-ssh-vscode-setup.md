@@ -40,6 +40,6 @@ Prerequites:
 1. install -d -m 700 ~/.ssh
 2. nano ~/.ssh/authorized_keys
 3. copy in the text from the .pub file of the ssh key, save and exit
-4. sudo chmod 644 ~/.ssh/authorized_keys
+4. sudo chmod 644 ~/.ssh/authorized_keys  
 sudo chown pi:pi ~/.ssh/authorized_keys
 
