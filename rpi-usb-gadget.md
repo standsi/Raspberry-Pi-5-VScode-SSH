@@ -1,7 +1,19 @@
 
 ### Connect Raspberry Pi 5 to PC with USB-C Gadget Mode
 
-* setting up usb gadget *
+Of the 4 techniques in this article for connecting the Pi to your PC, this is the simplest from a hardware perspective.
+
+![usb-gadget](USB-1a.jpg)
+
+Power and data are provided by a USB-C cable from your laptop to the "power" connector on the Pi.  The connector on the Pi is part of the onboard USB controller that provides several modes for communications.  One is the typical On-The-Go USB type found on phones.  Another is what is called "USB Gadget" mode where the port can act as a network device, in particular an Ethernet port.  Then the PC can recognize the device as implementing Ethernet through a standardized protocol (for Windows, this is termed RNDIS).  At that point the connection looks very similar to the setup described in the [Ethernet document](rpi-vscode-ethernet.md) in this article.
+
+While this approach has advantages of simple hardware and portability, there are several caveats:
+* Powering the Pi from the USB port on the laptop requires a port that can **continuously** supply at least 3A (15W).    Typically this means Thunderbolt ports.  Also the cable must be PD capable with good data performance; as shown in the image above a Thunderbolt cable is a safe choice.
+* From the Pi side the power consumption will need to be managed.  In testing with a Dell XPS-13 laptop the Pi was stable for all VSCode interaction with no additional hardware attached to the Pi.  It was also tested with a small expansion HAT (actually an Adafruit expansion bonnet) and an I2C environmental sensor (Adafruit BME680, see the [sample project](python_sample_project.md)) with no issues.  Higher power devices such as HATs with displays, etc., may cause brown-out due to the inability of the laptop port to supply surge current.  You will want to test your setup carefully before committing to extensive coding.
+* Finally, the setup of the laptop and Pi to enable this connection is fairly complicated, especially on the Pi side.  If you are not comfortable with Linux one of the other connection types might be preferable.  But the setup on the Pi side is one time only so if you can get through it successfully it is a nice, compact kit!
+
+The steps listed below are borrowed heavily from a great blog post (one of many for Pi connectivity over time) from [Ben Hardill - "Pi5 USB-C Gadget"](https://www.hardill.me.uk/wordpress/2023/12/23/pi5-usb-c-gadget/).  *Many thanks, Ben!*
+
 
 - new image of os lite with no wifi
 - connect pi with ethernet and turn on ics (assuming pi ethernet is 3):
@@ -27,7 +39,7 @@ sudo apt full-upgrade
 sudo rpi-update
 * (reboot)
 
-- add kernal configs
+- add Kernel configs
 sudo nano /boot/config.txt
 dtoverlay=dwc2
 
