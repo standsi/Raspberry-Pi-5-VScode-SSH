@@ -14,7 +14,7 @@ Fortunately VSCode has an extension developed specifically for this case.  The [
 
 ![Alt text](image.png)
 
-Furthermore, the Local VS code on your PC manages the remote server (even installs it for you) along with extensions that give you the full VS Code experience, including debugging.  For more information see:
+Furthermore, the Local VS code on your PC manages the remote server (even installs it for you) along with utilities that give you the full VS Code experience, including debugging.  For more information see:
 https://code.visualstudio.com/docs/remote/remote-overview
 
 As noted above, you can develop with remote VS Code without having to access the Pi desktop.  In fact, unless you need the desktop for other purposes you should install the Lite version of the OS, saving disk space and memory.  There are many sources for help in OS installation, starting with the [Raspberry Pi site](https://www.raspberrypi.com/documentation/computers/getting-started.html#installing-the-operating-system).
