@@ -18,6 +18,9 @@ With the recent upgrade (Oct. 2023) of the GPIO expander bonnet to include a STE
 * [Adafruit GPIO Expander Bonnet](https://learn.adafruit.com/gpio-expander-bonnet/overview)
 * [Adafruit BME680](https://learn.adafruit.com/adafruit-bme680-humidity-temperature-barometic-pressure-voc-gas)
 
+The assembled project might look like:
+![bme680](bme680.jpg)
+
 #### Steps to follow for the sample
 
 1. Assemble the components to your Pi as detailed above.
