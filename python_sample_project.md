@@ -19,7 +19,7 @@ With the recent upgrade (Oct. 2023) of the GPIO expander bonnet to include a STE
 * [Adafruit BME680](https://learn.adafruit.com/adafruit-bme680-humidity-temperature-barometic-pressure-voc-gas)
 
 The assembled project might look like:
-![bme680](bme680.jpg)
+![bme680](images/bme680.jpg)
 
 #### Steps to follow for the sample
 

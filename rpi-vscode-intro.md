@@ -12,7 +12,7 @@ So if you are developing for the Pi5 hardware, or you simply want a "standard" l
 
 Fortunately VSCode has an extension developed specifically for this case.  The [Remote-SSH extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) (along with some helper extensions to enhance the experience) lets you run the full VSCode UI on your desktop and remote over SSH to the Pi5 for access to files and code execution.  Because the extension only needs to send commands and data to the Pi, a smaller "shim" (called the VS Code Server) needs to run on the Pi, not the full UI. This is the way Microsoft shows this arrangement:
 
-![Alt text](image.png)
+![Alt text](images/image.png)
 
 Furthermore, the Local VS code on your PC manages the remote server (even installs it for you) along with utilities that give you the full VS Code experience, including debugging.  For more information see:
 https://code.visualstudio.com/docs/remote/remote-overview
@@ -43,9 +43,9 @@ There WAS a [reported issue](https://github.com/raspberrypi/bookworm-feedback/is
 
 ### Using VSCode Remote after connecting to the Pi
 Once you have access to your Pi with SSH, run VSCode, load the Remote Extension as noted above, and connect within VSCode to the remote Pi as an sSH Host:
-![remote-1](remote-1.png)
+![remote-1](images/remote-1.png)
 
-![remote-2](remote-2.png)
+![remote-2](images/remote-2.png)
 
 (Note, the Pi being tested was named raspberry5.local during the OS imaging, yours may be different)
 
