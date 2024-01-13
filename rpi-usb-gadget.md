@@ -147,7 +147,7 @@ WantedBy=sysinit.target
 
 sudo systemctl enable usbgadget.service
 ```
-10. Setup network bridge.  NOTE this is different than Ben's process in that the last line that assigns a static IP to the Gadget interface is left out.  That then puts the Gadget virtual Ethernet interface in IPV4.auto mode which let's the ICS service on the PC assign an address to give the Pi internet access through the PC. At the terminal:
+10. Setup network bridge.  NOTE this is different than Ben's process in that his last line that assigns a static IP to the Gadget interface is left out.  That then puts the Gadget virtual Ethernet interface in IPV4.auto mode which let's the ICS service on the PC assign an address to give the Pi internet access through the PC. At the terminal:
 ```
 sudo nmcli con add type bridge ifname br0
 sudo nmcli con add type bridge-slave ifname usb0 master br0
