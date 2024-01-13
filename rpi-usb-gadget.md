@@ -3,7 +3,7 @@
 
 Of the 4 techniques in this article for connecting the Pi to your PC, this is the simplest from a hardware perspective.
 
-![usb-gadget](USB-1a.jpg)
+![usb-gadget](images/USB-1a.jpg)
 
 Power and data are provided by a USB-C cable from your laptop to the "power" connector on the Pi.  The connector on the Pi is part of the onboard USB controller that provides several modes for communications.  One is the typical On-The-Go USB type found on phones.  Another is what is called "USB Gadget" mode where the port can act as a network device, in particular an Ethernet port.  Then the PC can recognize the device as implementing Ethernet through a standardized protocol (for Windows, this is termed RNDIS).  At that point the connection looks very similar to the setup described in the [Ethernet document](rpi-vscode-ethernet.md) in this article.
 
