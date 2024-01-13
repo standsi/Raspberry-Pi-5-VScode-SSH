@@ -171,7 +171,7 @@ leasefile-ro
 ```
 12. If you used Wifi for the setup, turn it off and disable as you exit.  You will need to search for the best way to do this, seems to vary depending on how the imager did the Wifi config.
 13. Shut down the Pi and remove ICS on the PC if you used the direct Ethernet method.
-14. Connect the laptop to the Pi with your USB-C cable. Wait until the Pi has fully booted and the virtual Ethernet RNDIS device is reported using the "ifconfig /all" command. **NOTE**, as of January 2024 this setup process results in an initial USB error saying the device is not recognized.  However, if you wait another minute or two it should then signal that a good USB port was recognized and work properly.  *If anyone knows what is causing this or has a solution it would be greatly appreciated*.
+14. Connect the laptop to the Pi with your USB-C cable. Wait until the Pi has fully booted and the virtual Ethernet RNDIS device is reported using the "ipconfig /all" command on the PC. **NOTE**, as of January 2024 this setup process results in an initial USB error saying the device is not recognized.  However, if you wait another minute or two it should then signal that a good USB port was recognized and work properly.  *If anyone knows what is causing this or has a solution it would be greatly appreciated*.
 15. Once the Ethernet RNDIS device is up on the PC, activate ICS by sharing your internet network adapter with the Pi Ethernet device.  Details can be found in the [direct ethernet guide](rpi-vscode-ethernet.md), using either the Windows Control Panel GUI or Powershell.  For example, in Powershell:
 ```
 get-netadapter
