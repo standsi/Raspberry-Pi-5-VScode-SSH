@@ -34,9 +34,7 @@ sudo rpi-update
 7. First add Kernel configuration (boot) changes:
 ```
 sudo nano /boot/config.txt
-
 # Add to end of file, save and exit editor:
-
 dtoverlay=dwc2
 ```
 
