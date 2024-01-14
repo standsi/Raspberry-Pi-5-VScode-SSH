@@ -34,23 +34,15 @@ sudo rpi-update
 7. First add Kernel configuration (boot) changes:
 ```
 sudo nano /boot/config.txt
--> Add to end of file, save and exit editor:
+-> Add the following line to end of file, save and exit editor:
 dtoverlay=dwc2
-```
-* xxxxx
-```
+
 sudo nano /boot/cmdline.txt
-
-# Add to end of line including the space before, no newline!, save and exit editor
-
+-> Add ght following to end of line including the space before, no newline!, save and exit editor
  modules-load=dwc2
-```
 
-```
 sudo nano /etc/modules
-
-# Add to end of file, save and exit editor:
-
+-> Add to end of file, save and exit editor:
 libcomposite
 ```
 8. Next you will create a script that will generate the configuration data that is used to spin up the Gadget virtual device; several are created, the RNDIS one is for windows.
