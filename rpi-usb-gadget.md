@@ -48,11 +48,8 @@ libcomposite
 8. Next you will create a script that will generate the configuration data that is used to spin up the Gadget virtual device; several are created, the RNDIS one is for windows.
 ```
 sudo nano /usr/local/sbin/usb-gadget.sh
-
-# Add the following in the file:
-
+-> Add the following in the file:
 #!/bin/bash
- 
 cd /sys/kernel/config/usb_gadget/
 mkdir -p display-pi
 cd display-pi
@@ -69,7 +66,6 @@ mkdir -p configs/c.1/strings/0x409
 echo "CDC" > configs/c.1/strings/0x409/configuration
 echo 250 > configs/c.1/MaxPower
 echo 0x80 > configs/c.1/bmAttributes
-
 #ECM
 mkdir -p functions/ecm.usb0
 HOST="00:dc:c8:f7:75:15" # "HostPC"
@@ -77,18 +73,15 @@ SELF="00:dd:dc:eb:6d:a1" # "BadUSB"
 echo $HOST > functions/ecm.usb0/host_addr
 echo $SELF > functions/ecm.usb0/dev_addr
 ln -s functions/ecm.usb0 configs/c.1/
- 
 #RNDIS
 mkdir -p configs/c.2
 echo 0x80 > configs/c.2/bmAttributes
 echo 0x250 > configs/c.2/MaxPower
 mkdir -p configs/c.2/strings/0x409
 echo "RNDIS" > configs/c.2/strings/0x409/configuration
- 
 echo "1" > os_desc/use
 echo "0xcd" > os_desc/b_vendor_code
 echo "MSFT100" > os_desc/qw_sign
- 
 mkdir -p functions/rndis.usb0
 HOST_R="00:dc:c8:f7:75:16"
 SELF_R="00:dd:dc:eb:6d:a2"
@@ -96,47 +89,35 @@ echo $HOST_R > functions/rndis.usb0/dev_addr
 echo $SELF_R > functions/rndis.usb0/host_addr
 echo "RNDIS" >   functions/rndis.usb0/os_desc/interface.rndis/compatible_id
 echo "5162001" > functions/rndis.usb0/os_desc/interface.rndis/sub_compatible_id
- 
 ln -s functions/rndis.usb0 configs/c.2
 ln -s configs/c.2 os_desc
- 
 udevadm settle -t 5 || :
 ls /sys/class/udc > UDC
- 
 sleep 5
- 
 nmcli connection up bridge-br0
 nmcli connection up bridge-slave-usb0
 nmcli connection up bridge-slave-usb1
 sleep 5
 service dnsmasq restart
-
-# Save and exit the editor then do:
-
+-> Save and exit the editor then do:
 sudo chmod +x /usr/local/sbin/usb-gadget.sh
 ```
 9. Next you create a systemd service descriptor file that will run the script above on boot:
 ```
 sudo nano /lib/systemd/system/usbgadget.service
-
-# Add the following in the editor:
-
+-> Add the following in the editor:
 [Unit]
 Description=My USB gadget
 After=network-online.target
 Wants=network-online.target
 #After=systemd-modules-load.service
-  
 [Service]
 Type=oneshot
 RemainAfterExit=yes
 ExecStart=/usr/local/sbin/usb-gadget.sh
-  
 [Install]
 WantedBy=sysinit.target
-
-# Save the file and exit the editor, then do:
-
+-> Save the file and exit the editor, then do:
 sudo systemctl enable usbgadget.service
 ```
 10. Setup network bridge.  NOTE this is different than Ben's process in that his last line that assigns a static IP to the Gadget interface is left out.  That then puts the Gadget virtual Ethernet interface in IPV4.auto mode which let's the ICS service on the PC assign an address to give the Pi internet access through the PC. At the terminal:
@@ -148,11 +129,8 @@ sudo nmcli con add type bridge-slave ifname usb1 master br0
 11. Next install and configure dnsmasq.  While this is not used once ICS is enabled on the PC, it does appear to be needed during the initial phase of the Gadget configuration.
 ```
 sudo apt-get install dnsmasq
-
 sudo nano /etc/dnsmasq.d/br0
-
-# Add the following in the editor, save and exit the editor:
-
+-> Add the following in the editor, save and exit the editor:
 dhcp-authoritative
 dhcp-rapid-commit
 no-ping
@@ -167,20 +145,15 @@ leasefile-ro
 15. Once the Ethernet RNDIS device is up on the PC, activate ICS by sharing your internet network adapter with the Pi Ethernet device.  Details can be found in the [direct ethernet guide](rpi-vscode-ethernet.md), using either the Windows Control Panel GUI or Powershell.  For example, in Powershell:
 ```
 get-netadapter
-
-# copy the names of the interface having internet access (the Public IF) to the Gadget interface (the Private IF), then enter (as an example)
-
+-> copy the names of the interface having internet access (the Public IF) to the Gadget interface (the Private IF), then enter (as an example)
 set-ics "Wi-Fi" "Ethernet 6"
 ```
 16. Now connect to the Pi with SSH in your terminal and verify the Pi has internet access:
 ```
 ssh pi@raspberrypi.local
-
-# Now in the Pi terminal:
-
+-> Now in the Pi terminal:
 ping www.google.com
-
-# you should get good responses from Google
+-> you should get good responses from Google
 ```
 
 **Congratulations!** You can now run VSCode and connect to the remote SSH host to begin development.  You should not have to change anything on the Pi when you reboot or power down.  On the PC you should be able to reboot the Pi with no changes needed.  If you remove the Pi USB cable from your PC and connect other similar USB devices (like a regular Ethernet adapter), it is advisable to remove the ICS sharing before connecting the Pi again.  Then just start at step 14 above.
