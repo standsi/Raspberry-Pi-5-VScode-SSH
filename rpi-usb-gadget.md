@@ -36,11 +36,11 @@ sudo rpi-update
 sudo nano /boot/config.txt
 -> Add the following line to end of file, save and exit editor:
 dtoverlay=dwc2
-<br>
+    
 sudo nano /boot/cmdline.txt
 -> Add ght following to end of line including the space before, no newline!, save and exit editor
  modules-load=dwc2
-<br>
+    
 sudo nano /etc/modules
 -> Add to end of file, save and exit editor:
 libcomposite
