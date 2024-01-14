@@ -34,7 +34,7 @@ References:
 `ssh-keygen -t ed25519`. DO NOT add a passphrase, just hit enter to leave it blank.  This will put files id_ed25519 and id_ed25519.pub in the `C:\Users\<user>\.ssh` directory.  The text contents of the id_ed25519.pub file is what will be copied to the Pi per the next step.
 3. Per the "How to setup raspberry pi SSH..." article (1st URL in the references), skip to the section **Copying the Public Keys Manually**.  Follow steps 1-5 to create the `~/.ssh` directory, put the public key from windows in the correct file, and set proper permissions. (* see below for a quick summary)
 4. Back on windows, you can first try to SSH from the terminal to the pi; it should not prompt for any password since the key is being passed.
-5. Finally in VSCode on windows do a remote-SSH connection to the pi and verify you get in with no password (see the end of the [intro document](rpi-vscode-intro.md) for details).
+5. Finally in VSCode on windows do a remote-SSH connection to the pi and verify you get in with no password (see the end of the [intro document](README.md) for details).
 
 **NOTE** To revert to password login remove the file from `~/.ssh` on the pi.  You can also remove the id_ed25519 files from the directory on the windows machine to keep it all clean.  Alternately, if you need to re-image your Pi but want to keep the SSH key you generated previously, just edit the "known_hosts" file in the `C:\Users\<user>\.ssh` directory to remove any line starting with "raspberrypi.local" or whatever name/IP you are using to SSH to the Pi.  Then you can SSH to the Pi using your username and password, then follow starting at step 3 above. 
 
