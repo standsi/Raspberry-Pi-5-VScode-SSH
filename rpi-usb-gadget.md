@@ -32,9 +32,10 @@ sudo rpi-update
     The next steps closely follow Ben's article; you may want to refer to his excellent explanations.  Changes that were needed for the VSCode operation will be noted.
 
 7. First add Kernel configuration (boot) changes:
+
 ```
 sudo nano /boot/config.txt
-# Add to end of file, save and exit editor:
+-> Add to end of file, save and exit editor:
 dtoverlay=dwc2
 ```
 
