@@ -39,6 +39,7 @@ sudo nano /boot/config.txt
 
 dtoverlay=dwc2
 ```
+
 ```
 sudo nano /boot/cmdline.txt
 
@@ -46,6 +47,7 @@ sudo nano /boot/cmdline.txt
 
  modules-load=dwc2
 ```
+
 ```
 sudo nano /etc/modules
 
