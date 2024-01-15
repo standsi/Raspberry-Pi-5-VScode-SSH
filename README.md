@@ -58,4 +58,3 @@ Once you have access to your Pi with SSH, run VSCode, load the Remote Extension 
 
 Developing within VSCode now on the Pi is the same as on your local environment: you have access to the file system and terminal on the Pi, you can load extensions, and run and debug code.  See this [python sample](python_sample_project.md) for a more detailed look at how to setup projects and develop code with an IOT environmental sensor attached to the Pi.
 
-[Home](./)
