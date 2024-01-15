@@ -42,13 +42,11 @@ for example "testblinka".  So then we have a path:
     ~/projects/testblinka
 
 7. In VSCode open the project folder as your workspace.  You can either do File/Open Folder... and select the project folder, or in the terminal do:  
-
 ```
 cd ~/projects/testblinka
 code .
 ```  
     (Yes, that is a "dot" after code, which restarts code in the current directory)
-
 8. Next create a virtual environment for the python libraries and execution stack. 
 You can do this one of two ways: using the built in helper in VSCode from the python extension, or through the command line.  Using the VSCode helper has the advantage that certain files are pre-populated like a .gitignore within the virtual environment.  The net effect is a folder named ".venv" that has links to the python interpreter (choose the default loaded with the Pi) and various other files and structures that are setup for loading libraries (the Pi 5 OS now requires virtual environments for python).  
 If you prefer to use the command line do:  
