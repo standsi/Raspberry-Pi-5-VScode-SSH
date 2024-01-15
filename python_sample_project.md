@@ -77,12 +77,10 @@ import board
 dir(board)
 ```   
     You should not get any errors and you should see a listing of board pins like "['CE0', 'CE1', 'D0', etc...].
-
 * In the terminal with the environment active, run:  
 `ls /dev/i2c* /dev/spi*`  
 You should get one or more lines like:  
 `/dev/i2c-1   /dev/i2c-12     /dev/spidev0.1`
-
 13. Now let's write some code to use our BME680 environmental sensor.  Again, with the virtual environment active, install the library for the sensor:  
 `pip install adafruit-circuitpython-bme680`  
 Alternately, you can create a requirements file with libraries needed for your application.  In this case it's about the same amount of typing, but if you have a number of libraries it can help be helpful.  Create a file in the root of the project called "requirements.txt" (that is the convention but the name can be anything).  In the file put:  
