@@ -98,7 +98,7 @@ import adafruit_bme680
 import time
 i2c = board.I2C()
 sensor = adafruit_bme680.Adafruit_BME680_I2C(i2c)
-
+#
 while(True):
     print('Temperature: {} degrees C'.format(sensor.temperature))
     print('Gas: {} ohms'.format(sensor.gas))
@@ -106,7 +106,6 @@ while(True):
     print('Pressure: {}hPa'.format(sensor.pressure))
     time.sleep(3)
 ```
-
 15. With the virtual environment active, in the terminal type:  
 `python testbme680.py`  
 (there is also a run button above the source file that will do the same thing)  
