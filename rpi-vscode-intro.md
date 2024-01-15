@@ -1,12 +1,12 @@
 ## Using a Raspberry Pi 5 as a remote Linux dev environment for Visual Studio Code
----
+
 Pages in this article:
 - [Introduction (this page)](rpi-vscode-intro)
 - [Setup SSH on the PC and Pi](rpi-ssh-vscode-setup)
 - [Setup Direct Ethernet connection](rpi-vscode-ethernet)
 - [Setup USB Gadget connection](rpi-usb-gadget)
 - [Sample Python Project](python_sample_project)
----
+<hr />
 The enhanced performance of the Raspberry Pi 5 (Pi5) over previous models enables some new use cases for the Pi on the desktop.  Software development is a common use, with Visual Studio Code (VSCode) being one of the recommended software packages in the full Pi desktop version.  Based on testing with a Pi5 8MB model, VSCode installs easily and runs properly.  When accessing the Pi5 OS desktop directly (that is, with keyboard/mouse/hdmi display), the UI is reasonably snappy, more so than on the Pi4.
 
 Developing applications on the Pi5 that involve IO such as I2C, GPIO, etc. requires that the code be run on the Pi.  While direct access to the Pi OS desktop is usable, there may be reasons this is not preferable:
