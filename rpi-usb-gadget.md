@@ -1,6 +1,13 @@
 
-### Connect Raspberry Pi 5 to PC with USB-C Gadget Mode
+## Connect Raspberry Pi 5 to PC with USB-C Gadget Mode
 
+Pages in this article:
+- [Introduction](./)
+- [Setup SSH on the PC and Pi](rpi-ssh-vscode-setup)
+- [Setup Direct Ethernet connection](rpi-vscode-ethernet)
+- [Setup USB Gadget connection (this page)](rpi-usb-gadget)
+- [Sample Python Project](python_sample_project)
+<hr />
 Of the 4 techniques in this article for connecting the Pi to your PC, this is the simplest from a hardware perspective.
 
 ![usb-gadget](images/USB-1a.jpg)

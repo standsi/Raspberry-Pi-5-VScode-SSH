@@ -1,5 +1,12 @@
 ## Setting up Windows 10/11 to remote VSCode to raspberry pi with an SSH key
 
+Pages in this article:
+- [Introduction](./)
+- [Setup SSH on the PC and Pi (this page)](rpi-ssh-vscode-setup)
+- [Setup Direct Ethernet connection](rpi-vscode-ethernet)
+- [Setup USB Gadget connection](rpi-usb-gadget)
+- [Sample Python Project](python_sample_project)
+<hr />
 As noted in the intro, you will need to create an SSH key on your Windows PC that is shared to the Pi so that SSH authentication is password-free.  The essential steps are to generate the key on the PC, connect to the Pi with SSH (using your password) in your terminal, put the public key file on the Pi with appropriate permissions, then reconnect to the Pi without the password to verify.  Details are given below.
 
 References:
