@@ -68,7 +68,7 @@ The "(.venv)" prefix tells you the environment is active.  If VSCode doesn't act
 `source .venv/bin/activate`  
 or use the alias for "source":  
 `. .venv/bin/activate`
-10. Finally you are ready to install Blinka and get ready to code!  
+10. Finally you are ready to install Blinka.  Sound good? Let's get ready to code!  (for all you Chef Billy Parisi fans!)  
 In the terminal with the virtual environment active do:  
 ```
 pip3 install --upgrade adafruit-python-shell
