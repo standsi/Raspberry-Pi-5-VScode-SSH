@@ -32,9 +32,7 @@ There are two steps for using this VS Code remote development with the Pi:
 1. Connect your Pi5 to your PC such that there is communication between your PC and the Pi, and the Pi has access to the internet. There are multiple ways to make the connection as detailed below.
 2. Create and install an SSH key on your PC and the Pi that secures SSH login.  While you can initially login to the Pi with the password setup when you image the OS, you will not be able to use password authentication practically during development because of the number of times authentication reoccurs.  
 
-The **second step** is covered in the document:
-
-[VS Code SSH setup](rpi-ssh-vscode-setup.md)
+The **second step** is covered in the document:  [VS Code SSH setup](rpi-ssh-vscode-setup.md)
 
 The **first step** can be done a number of different ways depending on your network, hardware, etc.  Please note, power to your Pi will generally be best configured as a separate USB-C connection except for the "all in one" method #4.  While you could supply power from your laptop the USB-C port on the Pi requires a USB Power Delivery supply with sufficient current (such as Thunderbolt).  
 1. ***Connect Pi to the same wireless or LAN to which your PC is connected***; the network usually contains a router giving internet access along with DHCP address management.  This is the easiest to setup if available: when you image the OS for the Pi configure a wireless SSID and password (or just plan to use Ethernet if available, which is on and setup for DHCP by default).  
