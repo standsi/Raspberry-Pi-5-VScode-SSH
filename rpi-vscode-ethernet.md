@@ -1,10 +1,11 @@
 ## Connect Raspberry Pi 5 to PC with Ethernet
 
 Pages in this article:
-- [Introduction](./)
+- [Overview](./)
+- [Connecting the Pi to the PC](rpi-connect-pc.md)
+  - [Setup Direct Ethernet connection (this page)](rpi-vscode-ethernet)
+  - [Setup USB Gadget connection](rpi-usb-gadget)
 - [Setup SSH on the PC and Pi](rpi-ssh-vscode-setup)
-- [Setup Direct Ethernet connection (this page)](rpi-vscode-ethernet)
-- [Setup USB Gadget connection](rpi-usb-gadget)
 - [Sample Python Project](python_sample_project)
 <hr />
 A direct Ethernet connection is a low-cost, performant method of connecting your Pi to your PC for remote development.  It offers several benefits:

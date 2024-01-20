@@ -1,13 +1,14 @@
 ## Setting up Windows 10/11 to remote VSCode to raspberry Pi 5 with an SSH key
 
 Pages in this article:
-- [Introduction](./)
+- [Overview](./)
+- [Connecting the Pi to the PC](rpi-connect-pc.md)
+  - [Setup Direct Ethernet connection](rpi-vscode-ethernet)
+  - [Setup USB Gadget connection](rpi-usb-gadget)
 - [Setup SSH on the PC and Pi (this page)](rpi-ssh-vscode-setup)
-- [Setup Direct Ethernet connection](rpi-vscode-ethernet)
-- [Setup USB Gadget connection](rpi-usb-gadget)
 - [Sample Python Project](python_sample_project)
 <hr />
-As noted in the intro, you will need to create an SSH key on your Windows PC that is shared to the Pi so that SSH authentication is password-free.  The essential steps are to generate the key on the PC, connect to the Pi with SSH (using your password) in your terminal, put the public key file on the Pi with appropriate permissions, then reconnect to the Pi without the password to verify.  Details are given below.  (Note, this has been tested on the Raspberry Pi 5 but may work on other models; "Pi" is used generically below).
+As noted in the overview, you will need to create an SSH key on your Windows PC that is shared to the Pi so that SSH authentication is password-free.  The essential steps are to generate the key on the PC, connect to the Pi with SSH (using your password) in your terminal, put the public key file on the Pi with appropriate permissions, then reconnect to the Pi without the password to verify.  Details are given below.  (Note, this has been tested on the Raspberry Pi 5 but may work on other models; "Pi" is used generically below).
 
 ### Assumptions:
 * The Pi is setup on your local network with either a fixed IP address or is accessible with pi@hostname.local MDNS (note that while the standard Pi MDNS is raspberrypi.local if you change the machine name when the OS is configured it will be that name.local, like raspberrypi5.local).
