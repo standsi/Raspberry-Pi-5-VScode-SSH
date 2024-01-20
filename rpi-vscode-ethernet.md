@@ -1,10 +1,11 @@
 ## Connect Raspberry Pi 5 to PC with Ethernet
 
 Pages in this article:
-- [Introduction](./)
+- [Overview](./)
+- [Connecting the Pi to the PC](rpi-connect-pc.md)
+  - [Setup Direct Ethernet connection (this page)](rpi-vscode-ethernet)
+  - [Setup USB Gadget connection](rpi-usb-gadget)
 - [Setup SSH on the PC and Pi](rpi-ssh-vscode-setup)
-- [Setup Direct Ethernet connection (this page)](rpi-vscode-ethernet)
-- [Setup USB Gadget connection](rpi-usb-gadget)
 - [Sample Python Project](python_sample_project)
 <hr />
 A direct Ethernet connection is a low-cost, performant method of connecting your Pi to your PC for remote development.  It offers several benefits:
@@ -17,13 +18,13 @@ A typical setup might look like:
 
 The two components shown are:
 1. ***USB to Ethernet adapter.***  If you have Ethernet on your PC and don't plan to use it for internet you can plug in there instead.  A typical USB-C to Ethernet adapter is [here](https://a.co/d/iSMJby9).  You could also use a small travel dock that has an Ethernet connection, like [here](https://a.co/d/cZiTq9g).
-2. ***Ethernet Crossover Cable***  This enables the two device ports to connect by swapping the data lines in a cable instead of requiring two network switch jacks to do the same thing.  You could use a small switch if you have it but that increases the component complexity.  A typical crossover cable is [here](https://a.co/d/2ZEJxe5).
+2. ***Ethernet Crossover Cable***  This enables the two device ports to connect by swapping the data lines in a cable instead of requiring two network switch jacks to do the same thing.  You could use a small switch if you have it but that increases the component complexity.  A typical crossover cable is [here](https://a.co/d/2ZEJxe5).  If you want to just use one of your patch cables there are also [adapters, like here](https://a.co/d/bcpnuNY).  For the DIY'er, the wiring needed for the crossover is shown in Appendix 2.
 
 Once you have the components you need, start with your PC up and on the internet but your **Pi turned off**.  Make the Ethernet connection similar to the image above. 
 
 Now on your PC you need to turn on a Windows feature called "Internet Connection Sharing (ICS)".  This is enabled by sharing a specific network adapter which is connected to internet access (this is called the public connection).  The sharing is done to the ethernet connection to your Pi (called the private connection).
 
-Enabling ICS is typically done through the control panel.  (You can also use a powershell script as detailed in the appendix below.)  In control panel you navigate to the network adapters as shown below (you might also try entering `Control Panel\Network and Internet\Network and Sharing Center` in the address line of a file explorer, then clicking on change adapter settings):
+Enabling ICS is typically done through the control panel.  (You can also use a powershell script as detailed in the appendix 1 below.)  In control panel you navigate to the network adapters as shown below (you might also try entering `Control Panel\Network and Internet\Network and Sharing Center` in the address line of a file explorer, then clicking on change adapter settings):
 
 ![Control Panel 1](images/CP-1.png)
 
@@ -67,7 +68,7 @@ ICS is in control of the shared interface including IP addresses and routing.  T
 
 ICS is an older feature in Windows, although still fully supported through Windows 11.  However you don't have control of details such as DHCP ranges, etc.  Also ICS appears to use some low level identifiers when configured, such as MAC addresses or even internal UIDs.  So best practice is to disable sharing when you make any changes to the configuration and then re-enable once the changes are made.  For example, if you re-image your Pi it is best to un-share the connection on the PC before re-booting the Pi.
 
-### Appendix: Managing ICS with Poweshell ###
+### Appendix 1: Managing ICS with Poweshell ###
 
 If you would rather enable and disable ICS with scripting there is a powershell module that makes it easy.  The module with instructions can be found [at this github repo](https://github.com/loxia01/PSInternetConnectionSharing).  As noted in the readme you will need to have your powershell execution policy set correctly and have setup install-module before installing.
 
@@ -107,3 +108,6 @@ To tear down ICS just enter the command:
 
 Nothing is returned but you can always run get-ics to check.
 
+### Appendix 2: Wiring an Ethernet crossover
+
+![wire-your-own-crossover](images/eth-x-adapter-wire.jpg)

@@ -1,10 +1,11 @@
 ## Sample Project: Pi 5 Environmental Sensor using Remote VSCode and CircuitPython
 
 Pages in this article:
-- [Introduction](./)
+- [Overview](./)
+- [Connecting the Pi to the PC](rpi-connect-pc.md)
+  - [Setup Direct Ethernet connection](rpi-vscode-ethernet)
+  - [Setup USB Gadget connection](rpi-usb-gadget)
 - [Setup SSH on the PC and Pi](rpi-ssh-vscode-setup)
-- [Setup Direct Ethernet connection](rpi-vscode-ethernet)
-- [Setup USB Gadget connection](rpi-usb-gadget)
 - [Sample Python Project (this page)](python_sample_project)
 <hr />
 In this example we will use our Raspberry Pi 5 with some breakout boards from Adafruit programmed in CircuitPython.  Generally CircuitPython runs on micro-controllers with the CircuitPython runtime.  On the Pi with a full Linux OS Adafruit has built a software layer called Blinka that replaces the runtime while still offering compatibility with the hundreds of libraries for hardware supported by CircuitPython.  
