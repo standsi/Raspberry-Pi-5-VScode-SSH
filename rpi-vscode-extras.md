@@ -14,3 +14,18 @@ Several additional topics came up during the review of this article that might b
 1. How well does VSCode remote work with older Pi's like the 4, 3 and even Zero?
 2. Does Docker run on the Pi 5 and can it be used with VSCode Dev Containers?  If so, is that even useful?
 
+### VSCode Remote Dev with older Raspberry Pi's
+
+
+
+
+----------
+
+all images were lite, pi 4 and 3 were 64 bit of the latest OS available for that device, zero 2w was 32 bit
+
+pi 4,4GB, ethernet direct, see htop image, ethernet name resolution was slow (5 secs to start pinging google)
+
+pi 3, 1GB, ethernet direct, also slow name resolution, see htop image
+
+
+
