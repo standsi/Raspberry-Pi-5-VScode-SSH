@@ -21,11 +21,15 @@ Several additional topics came up during the review of this article that might b
 
 ----------
 
-all images were lite, pi 4 and 3 were 64 bit of the latest OS available for that device, zero 2w was 32 bit
+tried connection methods (link) 1,2,3 on pi 4 and 3, 1 only on pi 2w.
 
-pi 4,4GB, ethernet direct, see htop image, ethernet name resolution was slow (5 secs to start pinging google)
+all images were lite, pi 4 and 3 were 64 bit of the latest OS available for that device, zero 2w was tried at 64 bit but too big, worked at 32 bit
 
-pi 3, 1GB, ethernet direct, also slow name resolution, see htop image
+pi 4,4GB, ethernet direct, see htop image, ethernet name resolution was slow (5 secs to start pinging google) *** internet issue??
+
+pi 3, 1GB, ethernet direct, also slow name resolution *** internet issue???, see htop image
+
+pi2w, 512MB.  Wifi (no ethernet adapter), able to connect with vscode, load extensions (python), run a small program.  memory usage kept climbing as extensions came into play, response was laggy, but did not crash.  see htop images.
 
 
 
