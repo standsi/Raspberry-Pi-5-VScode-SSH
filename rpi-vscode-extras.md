@@ -40,7 +40,9 @@ With the lower memory footprint of the older OS you could probably get a reasona
 
 #### Pi 2W, 512MB memory
 
+The Pi 2W has less resources and no built-in Ethernet so it was tested differently than the other two above.  The latest 32-bit Lite OS version was used (see note below about 64 bit); only connection method 1 (with WiFi); and again a small Python program with extensions.  As with the Pi 3 this is an older version of the OS than with the Pi 4 and 5.
 
+With the reduced resources available the Pi 2W use with VSCode remote is challenging.  Initially a 64-bit version of the OS was loaded but failed immediately when VSCode tried to setup the remote server shim.  With the 32 bit version the operation was stable.
 ----------
 
 tried connection methods (link) 1,2,3 on pi 4 and 3, 1 only on pi 2w.
