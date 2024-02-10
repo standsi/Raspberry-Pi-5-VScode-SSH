@@ -42,18 +42,28 @@ With the lower memory footprint of the older OS you could probably get a reasona
 
 The Pi 2W has less resources and no built-in Ethernet so it was tested differently than the other two above.  The latest 32-bit Lite OS version was used (see note below about 64 bit); only connection method 1 (with WiFi); and again a small Python program with extensions.  As with the Pi 3 this is an older version of the OS than with the Pi 4 and 5.
 
-With the reduced resources available the Pi 2W use with VSCode remote is challenging.  Initially a 64-bit version of the OS was loaded but failed immediately when VSCode tried to setup the remote server shim.  With the 32 bit version the operation was stable.
-----------
+With the reduced resources available the Pi 2W use with VSCode remote is challenging.  Initially a 64-bit version of the OS was loaded but failed immediately when VSCode tried to setup the remote server shim.  With the 32 bit version the operation was stable, at least for the nominal test configuration done.
 
-tried connection methods (link) 1,2,3 on pi 4 and 3, 1 only on pi 2w.
+Before VSCode remote is connected, the base OS usage is fairly light:
 
-all images were lite, pi 4 and 3 were 64 bit of the latest OS available for that device, zero 2w was tried at 64 bit but too big, worked at 32 bit
+![pi2w-base](images/pi2w-base.png)
 
-pi 4,4GB, ethernet direct, see htop image, ethernet name resolution was slow (5 secs to start pinging google) *** internet issue??
+When VSCode is first connected and Python extensions are loaded memory usage increases substantially:
 
-pi 3, 1GB, ethernet direct, also slow name resolution *** internet issue???, see htop image
+![pi2w-vsc-2](images/pi2w-vsc-2.png)
 
-pi2w, 512MB.  Wifi (no ethernet adapter), able to connect with vscode, load extensions (python), run a small program.  memory usage kept climbing as extensions came into play, response was laggy, but did not crash.  see htop images.
+Note that the extensions don't startup right away; they start when needed, as when a program is opened:
+
+![pi2w-vsc-6](images/pi2w-vsc-6.png)
+
+![pi2w-vsc-3](images/pi2w-vsc-3.png)
+
+At this point the interaction with VSCode is getting laggy but still usable.  Once the simple test is run, though, the CPU utilization goes up and the interface is slower:
+
+![pi2w-vsc-5](images/pi2w-vsc-5.png)
+
+So while the remote connection from VSCode can be made to the Pi 2W, it is only efficient for fairly small developments.
+
 
 
 
