@@ -64,6 +64,27 @@ At this point the interaction with VSCode is getting laggy but still usable.  On
 
 So while the remote connection from VSCode can be made to the Pi 2W, it is only efficient for fairly small developments.
 
+### VSCode Dev Containers in Docker on the Pi 5
+
+VSCode Dev Containers is a tooling that enables a full-featured development environment within an industry standard Docker container.  There are a number of advantages to development within a container including portability and isolation of application-specific versions, configuration, etc. [This article ](https://code.visualstudio.com/docs/devcontainers/containers) is an overview of how this works along with tutorials and details of setup.  In addition there are many instructional videos available.  The typical setup is to load Docker desktop on a PC or Mac and have the Dev Container extension in VSCode create a container in the local Docker engine.
+
+Another configuration option supported by VSCode leverages the SSH Remote extension we have been using in this article to provide a remote docker engine connection for the Dev Container extension where:
+
+- The docker engine is loaded on a remote Linux host; this is a "native" docker installation in Linux since the containers themselves are Linux machines, so the engine is relatively lightweight.
+- A remote SSH connection is made to the docker-enabled Linux host the same as covered elsewhere in this article.  Note that a basic capability of the remote extension is to map the file system from the remote host such that it is accessible to VSCode.
+- Finally the Dev Container extension, having access to the remote Linux file system AND the remote docker engine can create, run and open a container on the Linux host, fully exposing it for development.
+
+[This article](https://code.visualstudio.com/remote/advancedcontainers/develop-remote-host) gives more details how this works.
+
+
+
+------------------
+
+https://code.visualstudio.com/docs/devcontainers/containers
+
+https://code.visualstudio.com/remote/advancedcontainers/develop-remote-host
+
+
 
 
 
