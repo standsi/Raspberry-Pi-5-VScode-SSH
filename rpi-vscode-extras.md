@@ -70,19 +70,21 @@ VSCode Dev Containers is a tooling that enables a full-featured development envi
 
 Another configuration option supported by VSCode leverages the SSH Remote extension we have been using in this article to provide a remote docker engine connection for the Dev Container extension where:
 
-- The docker engine is loaded on a remote Linux host; this is a "native" docker installation in Linux since the containers themselves are Linux machines, so the engine is relatively lightweight.
+- The docker engine is installed on a remote Linux host; this is a "native" docker installation in Linux since the containers themselves are Linux machines, so the engine is relatively lightweight.
 - A remote SSH connection is made to the docker-enabled Linux host the same as covered elsewhere in this article.  Note that a basic capability of the remote extension is to map the file system from the remote host such that it is accessible to VSCode.
-- Finally the Dev Container extension, having access to the remote Linux file system AND the remote docker engine can create, run and open a container on the Linux host, fully exposing it for development.
+- Finally the Dev Container extension, having access to the remote Linux file system AND the remote docker engine, can create, run and open a container that you choose on the Linux host, fully exposing it for development.
 
-[This article](https://code.visualstudio.com/remote/advancedcontainers/develop-remote-host) gives more details how this works.
+[This article](https://code.visualstudio.com/remote/advancedcontainers/develop-remote-host) gives more details how this works.  A detailed example of how this process works can be found in the appendix below.  
+
+#### Why would you want to use a VSCode Dev Container on your Raspberry Pi?
+
+Typically for development on the Pi you probably don't need the encapsulation or portability of a container.  You will most likely be deploying your application on the Pi as opposed to, say, a cloud container service.  However, there are a few cases where the encapsulation (or isolation) of the container can come in handy.  For example:
+* You need to use some older code like libraries that don't work well under the latest Pi OS (at this writing, Bookworm).  Since the OS in the container can be specified from a broad range of distributions, you can tailor the container as needed.  This could range from some specific configuration needed to compile C/C++ code to conflicts of a Python library with the virtual environment requirement enforced by the latest Linux like Bookworm.
+* You want to run a pre-packaged application on the Pi that already has a Docker image available, or you want to scaffold something like an API to use for local development before configuring a production API in the cloud (that might come with a cost) (see the Appendix below for an example).  The running container is accessible from within your base Pi development through port forwarding, shared files, etc.
+
+While you may not use this feature often, it can be very useful for these type of edge cases or very advanced development (say, a local AI large language model running in a container with a chat agent on the base Pi?).  From a resource standpoint the VSCode extensions do a good job of keeping the memory and CPU needs reasonable; at the end of the appendix below you can see that a running container with extensions along with extensions on the base Pi take 1.2GB of the Pi 5 8GB memory.  Responsiveness is also very good and supports a very usable workflow should you need this capability.
 
 
-
-------------------
-
-https://code.visualstudio.com/docs/devcontainers/containers
-
-https://code.visualstudio.com/remote/advancedcontainers/develop-remote-host
 
 
 
