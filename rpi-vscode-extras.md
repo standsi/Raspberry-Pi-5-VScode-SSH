@@ -80,13 +80,13 @@ Another configuration option supported by VSCode leverages the SSH Remote extens
 
 Typically for development on the Pi you probably don't need the encapsulation or portability of a container.  You will most likely be deploying your application on the Pi as opposed to, say, a cloud container service.  However, there are a few cases where the encapsulation (or isolation) of the container can come in handy.  For example:
 * You need to use some older code like libraries that don't work well under the latest Pi OS (at this writing, Bookworm).  Since the OS in the container can be specified from a broad range of distributions, you can tailor the container as needed.  This could range from some specific configuration needed to compile C/C++ code to conflicts of a Python library with the virtual environment requirement enforced by the latest Linux like Bookworm.
-* You want to run a pre-packaged application on the Pi that already has a Docker image available, or you want to scaffold something like an API to use for local development before configuring a production API in the cloud (that might come with a cost) (see the Appendix below for an example).  The running container is accessible from within your base Pi development through port forwarding, shared files, etc.
+* You want to run a pre-packaged application on the Pi that already has a Docker image available, or you want to scaffold something like an API to use for local development before configuring a production API in the cloud (which might come with a cost) (see the Appendix below for an example).  The running container is accessible from within your base Pi development through port forwarding, shared files, etc.
 
-While you may not use this feature often, it can be very useful for these type of edge cases or very advanced development (say, a local AI large language model running in a container with a chat agent on the base Pi?).  From a resource standpoint the VSCode extensions do a good job of keeping the memory and CPU needs reasonable; at the end of the appendix below you can see that a running container with extensions along with extensions on the base Pi take 1.2GB of the Pi 5 8GB memory.  Responsiveness is also very good and supports a very usable workflow should you need this capability.  Note that all testing was done with high speed SD cards or a NVME SSD on the Pi; the disk is used fairly heavily, especially when the container is being created.
+While you may not use this feature often, it can be very useful for these type of edge cases or very advanced development (say, a local AI large language model running in a container with a chat agent on the base Pi?).  From a resource standpoint the VSCode extensions do a good job of keeping the memory and CPU needs reasonable; at the end of the appendix below you can see that a running container with extensions along with extensions on the base Pi take 1.2GB of the Pi 5 8GB memory including the OS with a full desktop.  Responsiveness is also very good and supports a very usable workflow should you need this capability.  Note that all testing was done with high speed SD cards or a NVME SSD on the Pi; the disk is used fairly heavily, especially when the container is being created.
 
 ### APPENDIX- Dev Container Example setup
 
-To create a Docker Dev Container on your Pi 5, first connect with SSH from VSCode remote as documented in the main part of this article.  Note that for this example only network connections (WiFi or Ethernet) were used; there is no technical reason the USB Gadget mode won't work but it is not as efficient as the network methods (see [here](rpi-connect-pc.md) for the list of methods).
+To create a Docker Dev Container on your Pi 5, first connect with SSH from VSCode remote as documented in the [main part of this article](./README.md). Note that for this example only network connections (WiFi or Ethernet) were used; there is no technical reason the USB Gadget mode won't work but it is not as efficient as the network methods (see [here](rpi-connect-pc.md) for the list of methods).  Also, to test the resource load as much as possible a full Pi OS desktop was loaded.
 
 After connecting to the Pi bring up a terminal and install Docker.  [This article](https://pimylifeup.com/raspberry-pi-docker/) gives an easy to follow method for installing and setting up Docker that will run whenever the Pi starts.
 
@@ -126,9 +126,36 @@ You can also install additional extensions to aid your development in the contai
 
 ![pi5-cntr-10](/images/pi5-cntr-10.png)
 
+Now we're ready to do some development.  We could write some Python code, but notice in one of the earlier screen shots the Dev Container extension loaded Github Copilot and Copilot Chat in the container.  That is because it recognized that Github Copilot was installed and configured on the PC so it loaded and authorized it in the container.  So let's use Copilot to scaffold a simple API that we can use in our development ([This article](https://docs.github.com/en/copilot/using-github-copilot/getting-started-with-github-copilot?tool=vscode) gives an intro to Copilot):
 
+![pi5-cntr-11](/images/pi5-cntr-11.png)
 
+The AI agent also gives us instructions on how to run the API within our dev environment as well as generate a requirements.txt file for installing dependencies:
 
+![pi5-cntr-12](/images/pi5-cntr-12.png)
 
+Following the Copilot instructions by copying the code into a main.py file, generating the requirements.txt file and installing the dependencies with `sudo pip install -r requirements.txt`, then running the command given by copilot starts a server for the API:
 
+![pi5-cntr-13](/images/pi5-cntr-13.png)
 
+VSCode automatically recognizes the port used by the code and forwards localhost port 8000 out to the PC, letting us browse to the API:
+
+![pi5-cntr-14](/images/pi5-cntr-14.png)
+
+The API from the container can also be made available to code running on the Pi by using standard Docker commands.
+
+To disconnect VSCode from the dev container just use the normal remote close command:
+
+![pi5-cntr-15](/images/pi5-cntr-15.png)
+
+Note that the dev container is still running.  This would allow, for example, the API server to continue to run and be used for development on the Pi.  You can stop the container with standard docker commands:
+
+![pi5-cntr-16](/images/pi5-cntr-16.png)
+
+The container image is still stored in docker on the Pi. So unless you delete it, the next time you go through this procedure on the same project directory VSCode will be able to load up the existing image for continued development.
+
+As noted above, Dev Containers do take resources.  With the full desktop OS loaded along with the extensions for Python on both the base Pi and the container, the memory usage looks like:
+
+![pi5-cntr-17](/images/pi5-cntr-17.png)
+
+So for larger developments an 8GB Pi 5 would offer the most headroom.  But a 4GB model may work fine for moderate developments, especially if you just need a container with a development helper like the API example above.
