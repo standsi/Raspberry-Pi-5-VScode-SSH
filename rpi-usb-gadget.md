@@ -8,6 +8,7 @@ Pages in this article:
   - [Setup USB Gadget connection (this page)](rpi-usb-gadget)
 - [Setup SSH on the PC and Pi](rpi-ssh-vscode-setup)
 - [Sample Python Project](python_sample_project)
+- [EXTRAS- older Pis and Docker](rpi-vscode-extras.md)
 <hr />
 Of the 4 techniques in this article for connecting the Pi 5 to your PC, this is the simplest from a hardware perspective.
 
