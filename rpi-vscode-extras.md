@@ -82,7 +82,49 @@ Typically for development on the Pi you probably don't need the encapsulation or
 * You need to use some older code like libraries that don't work well under the latest Pi OS (at this writing, Bookworm).  Since the OS in the container can be specified from a broad range of distributions, you can tailor the container as needed.  This could range from some specific configuration needed to compile C/C++ code to conflicts of a Python library with the virtual environment requirement enforced by the latest Linux like Bookworm.
 * You want to run a pre-packaged application on the Pi that already has a Docker image available, or you want to scaffold something like an API to use for local development before configuring a production API in the cloud (that might come with a cost) (see the Appendix below for an example).  The running container is accessible from within your base Pi development through port forwarding, shared files, etc.
 
-While you may not use this feature often, it can be very useful for these type of edge cases or very advanced development (say, a local AI large language model running in a container with a chat agent on the base Pi?).  From a resource standpoint the VSCode extensions do a good job of keeping the memory and CPU needs reasonable; at the end of the appendix below you can see that a running container with extensions along with extensions on the base Pi take 1.2GB of the Pi 5 8GB memory.  Responsiveness is also very good and supports a very usable workflow should you need this capability.
+While you may not use this feature often, it can be very useful for these type of edge cases or very advanced development (say, a local AI large language model running in a container with a chat agent on the base Pi?).  From a resource standpoint the VSCode extensions do a good job of keeping the memory and CPU needs reasonable; at the end of the appendix below you can see that a running container with extensions along with extensions on the base Pi take 1.2GB of the Pi 5 8GB memory.  Responsiveness is also very good and supports a very usable workflow should you need this capability.  Note that all testing was done with high speed SD cards or a NVME SSD on the Pi; the disk is used fairly heavily, especially when the container is being created.
+
+### APPENDIX- Dev Container Example setup
+
+To create a Docker Dev Container on your Pi 5, first connect with SSH from VSCode remote as documented in the main part of this article.  Note that for this example only network connections (WiFi or Ethernet) were used; there is no technical reason the USB Gadget mode won't work but it is not as efficient as the network methods (see [here](rpi-connect-pc.md) for the list of methods).
+
+After connecting to the Pi bring up a terminal and install Docker.  [This article](https://pimylifeup.com/raspberry-pi-docker/) gives an easy to follow method for installing and setting up Docker that will run whenever the Pi starts.
+
+Assuming you are creating a new project in the dev container, create a project folder and open it in VSCode.
+
+![pi5-cntr-1](/images/pi5-cntr-1.png)
+
+Now open your command palette (F1 or CTRL-Shift-P) and search for "dev" to see a list of commands the Dev Container extension provides.  Note that the extension provides a number of ways to create new containers or open existing code or repositories in a container.  The command highlighted will open the existing folder in a new container while keeping any project files on the base Pi file system.
+
+![pi5-cntr-2](/images/pi5-cntr-2.png)
+
+Since in this example flow this is creating a new container from a blank folder, the Dev Container extension will prompt for the configuration data needed to spin up the container.  First is the base OS template; in this case we will develop a simple Python API so we will pick one of the templates from Microsoft that has Python all setup for us.  There are many container templates from both Microsoft and the community; the documentation noted above has full details.
+
+![pi5-cntr-3](/images/pi5-cntr-3.png)
+
+Next, depending on the template chosen, there may be additional configuration data needed.  In this example case since Python was chosen as the base, the extension lets you pick a python and Linux OS version; in this case we are picking Python 3.11 and the Bullseye OS version (possibly for some compatibility needs as noted above).
+
+![pi5-cntr-4](/images/pi5-cntr-4.png)
+
+The extension may request other configuration information for the template chosen.  Most of the templates will finally let you choose to add some features to the container configuration.  Features are programs to be installed (or in some cases scripts to be run) when the container is started.  There is usually a large list of features available, from simple to large (like other languages including PHP, Ruby, etc.).  In addition, you can run startup scripts by configuring shell commands after the container configuration is completed which will apply on the next startup (containers are idempotent, meaning they get created fresh each time they are started, thus the reason why our configuration data and programs are stored on the base filesystem of the Pi).  In this example we are just asking for the Github CLI to be installed as a test.
+
+![pi5-cntr-5](/images/pi5-cntr-5.png)
+
+The extension will then save the configuration in a new file called devcontainer.json, communicate with the Docker engine to create a new container, start the container, and re-connect the remote communications to the new container (still through SSH on the base Pi).  Note that the remote descriptor in the lower left shows this "double hop" into the container.  Also the configuration file shows the base template we chose (actually a docker image) plus the feature we added:
+
+![pi5-cntr-6](/images/pi5-cntr-6.png)
+
+The base template we chose generally will have various programs already installed (in addition to any features we selected), along with VSCode extensions that have been pre-configured.  Also note that the file system in the container has mappings back to the base Pi file system so our configuration and programs will persist when the container is shut down.
+
+![pi5-cntr-7](/images/pi5-cntr-7.png)
+
+You can also install additional extensions to aid your development in the container just as you can using VSCode remote to the base Pi.  But unlike the base Pi, since the container itself is not persistent you will need to update the configuration file to reload the desired extension when the container is re-started.  The following sequence shows a simple helper extension that is installed as usual; then a helper menu will add the extension name to the configuration file so it is loaded again on startup.
+
+![pi5-cntr-8](/images/pi5-cntr-8.png)
+
+![pi5-cntr-9](/images/pi5-cntr-9.png)
+
+![pi5-cntr-10](/images/pi5-cntr-10.png)
 
 
 
