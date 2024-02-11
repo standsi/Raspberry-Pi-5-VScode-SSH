@@ -7,6 +7,7 @@ Pages in this article:
   - [Setup USB Gadget connection](rpi-usb-gadget)
 - [Setup SSH on the PC and Pi](rpi-ssh-vscode-setup)
 - [Sample Python Project](python_sample_project)
+- [EXTRAS- older Pis and Docker](rpi-vscode-extras.md)
 <hr />
 The enhanced performance of the Raspberry Pi 5 (Pi5) over previous models enables some new use cases for the Pi as a potential desktop PC replacement.  Software development is a common use, with Visual Studio Code (VSCode) being one of the recommended software packages in the full Pi desktop version.  Based on testing with a Pi5 8MB model, VSCode installs easily and runs properly on the Pi desktop.  When accessing the Pi5 OS desktop directly (that is, with keyboard/mouse/hdmi display), the UI is reasonably snappy, more so than on the Pi4.
 
