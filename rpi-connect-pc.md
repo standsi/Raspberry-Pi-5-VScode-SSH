@@ -7,6 +7,7 @@ Pages in this article:
   - [Setup USB Gadget connection](rpi-usb-gadget)
 - [Setup SSH on the PC and Pi](rpi-ssh-vscode-setup)
 - [Sample Python Project](python_sample_project)
+- [EXTRAS- older Pis and Docker](rpi-vscode-extras.md)
 <hr />
 The Pi can be connected to your PC a number of different ways depending on your network, hardware, etc.  Please note, power to your Pi will generally be best configured as a separate USB-C connection except for the "all in one" method #4.  While you could supply power from your laptop the USB-C port on the Pi requires a USB Power Delivery supply with sufficient current (such as Thunderbolt).
 

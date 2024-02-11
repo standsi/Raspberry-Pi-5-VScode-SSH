@@ -7,6 +7,7 @@ Pages in this article:
   - [Setup USB Gadget connection](rpi-usb-gadget)
 - [Setup SSH on the PC and Pi (this page)](rpi-ssh-vscode-setup)
 - [Sample Python Project](python_sample_project)
+- [EXTRAS- older Pis and Docker](rpi-vscode-extras.md)
 <hr />
 As noted in the overview, you will need to create an SSH key on your Windows PC that is shared to the Pi so that SSH authentication is password-free.  The essential steps are to generate the key on the PC, connect to the Pi with SSH (using your password) in your terminal, put the public key file on the Pi with appropriate permissions, then reconnect to the Pi without the password to verify.  Details are given below.  (Note, this has been tested on the Raspberry Pi 5 but may work on other models; "Pi" is used generically below).
 

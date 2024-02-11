@@ -7,6 +7,7 @@ Pages in this article:
   - [Setup USB Gadget connection](rpi-usb-gadget)
 - [Setup SSH on the PC and Pi](rpi-ssh-vscode-setup)
 - [Sample Python Project](python_sample_project)
+- [EXTRAS- older Pis and Docker](rpi-vscode-extras.md)
 <hr />
 A direct Ethernet connection is a low-cost, performant method of connecting your Pi to your PC for remote development.  It offers several benefits:
 * Isolates the Pi to a private network with pass-through internet access via your PC.
