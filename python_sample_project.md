@@ -109,11 +109,11 @@ i2c = board.I2C()
 sensor = adafruit_bme680.Adafruit_BME680_I2C(i2c)
 #
 while(True):  
-    print('Temperature: {} degrees C'.format(sensor.temperature))
-    print('Gas: {} ohms'.format(sensor.gas))
-    print('Humidity: {}%'.format(sensor.humidity))
-    print('Pressure: {}hPa'.format(sensor.pressure))
-    time.sleep(3)
+  print('Temperature: {} degrees C'.format(sensor.temperature))
+  print('Gas: {} ohms'.format(sensor.gas))
+  print('Humidity: {}%'.format(sensor.humidity))
+  print('Pressure: {}hPa'.format(sensor.pressure))
+  time.sleep(3)
 ```
 15. With the virtual environment active, in the terminal type:  
 `python testbme680.py`  
