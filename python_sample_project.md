@@ -101,19 +101,19 @@ python source files with imports in them, you can use this to generate requireme
 [https://github.com/bndr/pipreqs](https://github.com/bndr/pipreqs)
 
 14. Create a code file (such as "testbme680.py") in the project directory with the following code:
-```
+```python
 import board
 import adafruit_bme680
 import time
 i2c = board.I2C()
 sensor = adafruit_bme680.Adafruit_BME680_I2C(i2c)
 #
-while(True):
-    print('Temperature: {} degrees C'.format(sensor.temperature))
-    print('Gas: {} ohms'.format(sensor.gas))
-    print('Humidity: {}%'.format(sensor.humidity))
-    print('Pressure: {}hPa'.format(sensor.pressure))
-    time.sleep(3)
+while(True):  
+  print('Temperature: {} degrees C'.format(sensor.temperature))
+  print('Gas: {} ohms'.format(sensor.gas))
+  print('Humidity: {}%'.format(sensor.humidity))
+  print('Pressure: {}hPa'.format(sensor.pressure))
+  time.sleep(3)
 ```
 15. With the virtual environment active, in the terminal type:  
 `python testbme680.py`  
