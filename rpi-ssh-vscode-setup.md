@@ -36,7 +36,7 @@ As noted in the overview, you will need to create an SSH key on your Windows PC 
 1. Per the VSCode article (2nd URL in the references below), add the Remote - SSH microsoft extension, configure the Pi as a host (like pi@raspberrypi.local or an IP) and remote into it with VSCode to make sure password auth is working to the VSCode server that will be installed on the Pi.
 2. Per the same VSCode article, generate an SSH key on the windows machine.  In Powershell, type: 
 `ssh-keygen -t ed25519`. DO NOT add a passphrase, just hit enter to leave it blank.  This will put files id_ed25519 and id_ed25519.pub in the `C:\Users\<user>\.ssh` directory.  The text contents of the id_ed25519.pub file is what will be copied to the Pi per the next step.
-3. Per the "How to setup Raspberry Pi SSH..." article (1st URL in the references below), skip to the section **Copying the Public Keys Manually**.  Follow steps 1-5 to create the `~/.ssh` directory, put the public key from windows in the correct file, and set proper permissions. (* see below for a quick summary)
+3. Per the "How to setup Raspberry Pi SSH..." article (1st URL in the references below), skip to the section **Copying the Public Keys Manually**.  Follow steps 1-5 to create the `~/.ssh` directory, put the public key from windows in the correct file, and set proper permissions. (* see below for a quick summary). *NOTE*, you can also use Powershell to push the SSH key from Windows to the Pi, see below.
 4. Back on windows, you can first try to SSH from the terminal to the Pi; it should not prompt for any password since the key is being passed.
 5. Finally in VSCode on windows do a remote-SSH connection to the Pi and verify you get in with no password (see the end of the [intro document](README.md) for details).
 
@@ -48,6 +48,12 @@ As noted in the overview, you will need to create an SSH key on your Windows PC 
 3. copy in the text from the .pub file of the SSH key, save and exit
 4. sudo chmod 644 ~/.ssh/authorized_keys  
 sudo chown pi:pi ~/.ssh/authorized_keys
+
+**BONUS- Using Powershell to transfer the SSH key to the Pi**
+You can use Powershell from the PC to push the SSH key to the Pi, including creating the ~/.ssh folder noted above.  The command below will also push a new key to an existing folder. This command assumes the ed25519 key is generated as noted in step 2 above.  The command is:
+
+`type $env:USERPROFILE\.ssh\id_ed25519.pub | ssh pi@raspberrypi5.local "umask 077; test -d .ssh || mkdir .ssh ; umask 022 ; cat >> .ssh/authorized_keys" || exit 1`
+
 
 References:
 * [https://pimylifeup.com/raspberry-pi-ssh-keys/](https://pimylifeup.com/raspberry-pi-ssh-keys/)
