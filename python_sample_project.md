@@ -79,6 +79,8 @@ sudo -E env PATH=$PATH python3 raspi-blinka.py
 ```
 11. If there were no errors in the installation, the script will prompt to reboot the Pi. You can accept the action to reboot, after which VSCode will attempt to re-connect when the Pi comes back up.  You will probably get a message to reload the window which should get you back to the project folder.  Otherwise you can say "No" to the prompt and handle the reboot and reconnect manually.
 
+> Steps 8-11 above can be automated using a small script.  This can save typing if you need to create several distinct Blinka projects.  See the Appendix below.
+
 12.  The Blinka install activates certain hardware functions like I2C and SPI.  It also installs the built-in libraries such as "board".  So you can do a couple of quick checks to make sure everything installed properly:  
 * In the terminal with the virtual environment active, run "Python", then in the REPL type:  
 ```
@@ -127,4 +129,48 @@ If you used the VSCode helper to create the virtual environment there is already
 17.  Once your .gitignore is in place, commit your files to the local repo.  Then the VSCode Source Control app will show a button to let you push your repo to your Github account.  If you were logged in to Github on your PC the Remote Extension will securely pass your credentials to the Pi to enable you to complete the publish.  
 Similarly, as you make changes to your application you can push new commits to Github, either direct to your default branch or to new branches.  Also, if you load the Github extension in VSCode you can do pull requests right from the UI, including reviewing and closing.
 
+### Appendix - Script to create Blinka Project
 
+The following bash script will scaffold a Blinka installation in an empty project directory, including the required virtual environment, an empty main.py and a .gitignore.  To use the script, first connect VSCode SSH remote to your Pi.  Open a conveniently located folder such as your home directory, and copy the code from below into a shell file (for example, createblinka.sh in your home(~) directory).  Then create your new blinka project folder and use the Open Folder... in VSCode to switch to that new (empty) folder.  Now execute the script file like:
+
+`source ~/createblinka.sh`
+
+If the script completes without error it will ask your to reboot.  Once rebooted (you will probably get the message to reload the window), your new project is open with Blinka installed and the virtual environment activated.  You can now pick up at step 12.  To create a new project just create another empty directory and execute the existing script file.
+
+**Script Source**
+
+```bash
+#!/usr/bin/env bash
+if [ "$(ls -A .)" ]; then
+  echo "dir not empty, bail"
+  exit 0
+else
+  echo "dir ok"
+fi
+code --install-extension ms-python.python
+python3 -m venv .venv --system-site-packages
+chmod a+x ./.venv/bin/activate
+set -e
+. ./.venv/bin/activate
+sleep 5 && python3 -m ensurepip --upgrade
+pip3 install --upgrade adafruit-python-shell
+mkdir ./.vscode
+#
+cat > ./.vscode/settings.json <<- EOF
+{"python.terminal.activateEnvironment": true}
+EOF
+#
+cat > ./.gitignore <<- EOF
+.venv
+EOF
+#
+echo "#Put your new circuit python code here!!" > ./main.py
+wget https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/raspi-blinka.py
+sudo -E env PATH=$PATH python3 raspi-blinka.py <<EOF
+n
+EOF
+rm -rf raspi-blinka.py
+code . ./main.py
+echo "You must reboot to have settings take effect.  You can use 'sudo reboot' from the command line"
+
+```
