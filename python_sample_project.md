@@ -79,7 +79,7 @@ sudo -E env PATH=$PATH python3 raspi-blinka.py
 ```
 11. If there were no errors in the installation, the script will prompt to reboot the Pi. You can accept the action to reboot, after which VSCode will attempt to re-connect when the Pi comes back up.  You will probably get a message to reload the window which should get you back to the project folder.  Otherwise you can say "No" to the prompt and handle the reboot and reconnect manually.
 
-> Steps 8-11 above can be automated using a small script.  This can save typing if you need to create several distinct Blinka projects.  See the Appendix below.
+    > Steps 8-11 above can be automated using a small script.  This can save typing if you need to create several distinct Blinka projects.  See the Appendix below.
 
 12.  The Blinka install activates certain hardware functions like I2C and SPI.  It also installs the built-in libraries such as "board".  So you can do a couple of quick checks to make sure everything installed properly:  
 * In the terminal with the virtual environment active, run "Python", then in the REPL type:  
